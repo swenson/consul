@@ -642,7 +642,8 @@ The corresponding CLI command is [`consul join`](/commands/join).
 ### Parameters
 
 - `address` `(string: <required>)` - Specifies the address of the other agent to
-  join. This is specified as part of the URL.
+  join. This is specified as part of the URL as a path segment and
+  [can be URL-encoded](/api-docs#url-encoded-resource-names).
 
 - `wan` `(bool: false)` - Specifies to try and join over the WAN pool. This is
   only optional for agents running in server mode. This is specified as part of
@@ -697,16 +698,16 @@ LAN and WAN gossip pools. If a node fails unexpectedly, then it will be in a `fa
 belonging to that node will not be cleaned up. Forcing a node into the `left`
 state allows its old entries to be removed.
 
-| Method | Path                       | Produces           |
-| ------ | -------------------------- | ------------------ |
-| `PUT`  | `/agent/force-leave/:node` | `application/json` |
+| Method | Path                            | Produces           |
+| ------ | ------------------------------- | ------------------ |
+| `PUT`  | `/agent/force-leave/:node_name` | `application/json` |
 
 Additionally, by specifying the `prune` flag, a node can be forcibly removed from
 the list of members entirely.
 
-| Method | Path                             | Produces           |
-| ------ | -------------------------------- | ------------------ |
-| `PUT`  | `/agent/force-leave/:node?prune` | `application/json` |
+| Method | Path                                  | Produces           |
+| ------ | ------------------------------------- | ------------------ |
+| `PUT`  | `/agent/force-leave/:node_name?prune` | `application/json` |
 
 The table below shows this endpoint's support for
 [blocking queries](/api-docs/features/blocking),
@@ -720,17 +721,19 @@ The table below shows this endpoint's support for
 
 The corresponding CLI command is [`consul force-leave`](/commands/force-leave).
 
-### Parameters
+### Path Parameters
 
-- `node` `(string: <required>)` - Specifies the name of the node to be forced into `left` state. This is specified as part of the URL.
+- `node_name` `(string: <required>)` - Specifies the name of the node to be forced into `left` state.
+  This parameter can be [URL-encoded to pass values with URL-invalid characters](/api-docs#url-encoded-resource-names).
+
+### Query Parameters
 
 - `prune` `(bool: false)` - Specifies whether to forcibly remove the node from the list of members.
   Pruning a node in the `left` or `failed` state removes it from the list altogether. 
-  This is specified as part of the URL as a query parameter. Added in Consul 1.6.2.
+  Added in Consul 1.6.2.
 
 - `wan` `(bool: false)` - Specifies the node should only be removed from the WAN
-  gossip pool. This is specified as part of the URL as a query parameter. Added
-  in Consul 1.11.0.
+  gossip pool. Added in Consul 1.11.0.
 
 ### Sample Request
 
