@@ -42,7 +42,13 @@ are not supported from commands, but may be from the corresponding HTTP endpoint
 
 ## Usage
 
-Usage: `consul force-leave [options] node`
+Usage: `consul force-leave [options] <node_name>`
+
+#### Positional Arguments
+
+- `node_name` - The name of the node to be forced into the `left` state.
+  If the name contains URL-invalid characters,
+  [provide the raw name without URL-encoding](/commands#arguments-with-url-invalid-characters).
 
 #### API Options
 
