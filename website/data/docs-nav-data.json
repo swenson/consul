@@ -382,8 +382,8 @@
         "path": "api-gateway"
       },
       {
-        "title": "Usage",
-        "path": "api-gateway/api-gateway-usage"
+        "title": "Installation",
+        "path": "api-gateway/consul-api-gateway-install"
       },
       {
         "title": "Technical Specifications",
@@ -888,7 +888,20 @@
       },
       {
         "title": "Configuration",
-        "path": "agent/options"
+        "routes": [
+          {
+            "title": "General",
+            "path": "agent/config"
+          },
+          {
+            "title": "CLI Reference",
+            "path": "agent/config/cli-flags"
+          },
+          {
+            "title": "Configuration Reference",
+            "path": "agent/config/config-files"
+          }
+        ]
       },
       {
         "title": "Configuration Entries",

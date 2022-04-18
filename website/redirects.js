@@ -1264,4 +1264,14 @@ module.exports = [
     destination: '/api-docs/:path*',
     permanent: true,
   },
+  {
+    source: '/docs/agent/options',
+    destination: '/docs/agent/config',
+    permanent: true,
+  },
+  {
+    source: '/docs/api-gateway/api-gateway-usage',
+    destination: '/docs/api-gateway/consul-api-gateway-install',
+    permanent: true,
+  },
 ]

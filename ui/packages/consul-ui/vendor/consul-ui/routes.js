@@ -7,32 +7,32 @@
       index: {
         _options: {
           path: '/',
-          redirect: '../show/serverstatus',
+          redirect: '../services',
         },
       },
       show: {
         _options: {
           path: '/overview',
-          abilities: ['access overview']
+          abilities: ['access overview'],
         },
         serverstatus: {
           _options: {
             path: '/server-status',
-            abilities: ['read servers']
+            abilities: ['read servers'],
           },
         },
         cataloghealth: {
           _options: {
             path: '/catalog-health',
-            abilities: ['access overview']
+            abilities: ['access overview'],
           },
         },
         license: {
           _options: {
             path: '/license',
-            abilities: ['read license']
+            abilities: ['read license'],
           },
-        }
+        },
       },
       services: {
         _options: { path: '/services' },
