@@ -2,12 +2,11 @@ syntax = "proto3";
 
 package pbpeering;
 
-option go_package = "github.com/hashicorp/consul/proto/pbpeering";
-
 import "google/protobuf/any.proto";
-
 // TODO(peering): Handle this some other way
-import "proto/pbstatus/status.proto";
+import "pbstatus/status.proto";
+
+option go_package = "github.com/hashicorp/consul/proto/pbpeering";
 
 // PeeringService handles operations for establishing peering relationships
 // between disparate Consul clusters.
@@ -111,13 +110,13 @@ message PeeringReadRequest {
 
   string Datacenter = 3;
 
-  //TODO(peering) query metadata
+//TODO(peering) query metadata
 }
 
 message PeeringReadResponse {
   Peering Peering = 1;
 
-  //TODO(peering) query metadata
+//TODO(peering) query metadata
 }
 
 message PeeringListRequest {
@@ -125,13 +124,13 @@ message PeeringListRequest {
 
   string Datacenter = 2;
 
-  //TODO(peering) query metadata
+//TODO(peering) query metadata
 }
 
 message PeeringListResponse {
   repeated Peering Peerings = 1;
 
-  //TODO(peering) query metadata
+//TODO(peering) query metadata
 }
 
 message PeeringWriteRequest {
@@ -142,7 +141,7 @@ message PeeringWriteRequest {
 }
 
 // TODO(peering): Consider returning Peering if we keep this endpoint around
-message PeeringWriteResponse{}
+message PeeringWriteResponse {}
 
 message PeeringDeleteRequest {
   string Name = 1;
@@ -168,7 +167,7 @@ message PeeringTrustBundleWriteRequest {
   string Datacenter = 2;
 }
 
-message PeeringTrustBundleWriteResponse{}
+message PeeringTrustBundleWriteResponse {}
 
 message PeeringTrustBundleDeleteRequest {
   string Name = 1;
@@ -179,7 +178,7 @@ message PeeringTrustBundleDeleteRequest {
   string Datacenter = 3;
 }
 
-message PeeringTrustBundleDeleteResponse{}
+message PeeringTrustBundleDeleteResponse {}
 
 message GenerateTokenRequest {
   // Name of the remote peer.
